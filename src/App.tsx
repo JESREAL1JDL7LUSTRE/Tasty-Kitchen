@@ -1,10 +1,11 @@
 import './App.css'
+import Main from './components/content/Main'
 
 function App() {
   return (
-<div>
-<h1>Tasty Kitchen</h1>
-</div>
+  <div>
+    <Main />
+  </div>
   )
 }
 
