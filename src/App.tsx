@@ -3,9 +3,11 @@ import Main from './components/content/Main'
 
 function App() {
   return (
+
   <div>
     <Main />
   </div>
+
   )
 }
 
