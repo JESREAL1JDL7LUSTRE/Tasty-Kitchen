@@ -4,6 +4,7 @@ function App() {
   return (
 <div>
 <h1>Tasty Kitchen</h1>
+<p>for the streak</p>
 </div>
   )
 }
