@@ -15,6 +15,7 @@ interface Post {
 }
 
 function App() {
+  
   const [data, setData] = useState<Post[]>([]);
 
   useEffect(() => {
@@ -45,7 +46,6 @@ function App() {
     <div>
       <div>
     <NavBar />
-    
     <Routes>
       <Route path='/' element={<HomePage />} />
       <Route path='/menu' element={<Menu />} />

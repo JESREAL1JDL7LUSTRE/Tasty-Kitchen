@@ -1,6 +1,6 @@
 from django.urls import path
-from rest_framework.routers import DefaultRouter
-from .views import PostViewSet
+from .views import get_posts
 
-post_router = DefaultRouter()
-post_router.register('posts', PostViewSet)
+urlpatterns = [
+    path('posts/', get_posts, name='posts'),
+]
