@@ -22,25 +22,31 @@ function App() {
     async function fetchData() {
       const apiUrl = `${import.meta.env.VITE_API_URL}/posts`;
       console.log("Fetching from:", apiUrl);
-
+  
       try {
         const response = await fetch(apiUrl);
+        const text = await response.text(); // Get raw response text for debugging
+  
+        console.log("Raw response:", text); // Log the response
+  
         if (!response.ok) {
           throw new Error(`Network error: ${response.status} ${response.statusText}`);
         }
-
-        const text = await response.text();
-        console.log("Raw response:", text); // Debugging
-
-        const result = JSON.parse(text) as Post[];
-        setData(result);
+  
+        try {
+          const result = JSON.parse(text) as Post[];
+          setData(result);
+        } catch (jsonError) {
+          throw new Error(`JSON parsing error: ${jsonError}. Response text: ${text}`);
+        }
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     }
-
+  
     fetchData();
   }, []);
+  
 
   return (
     <div>
